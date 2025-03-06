@@ -4,7 +4,7 @@
 #include <ArduinoJson.h>
 
 // MQTT broker credentials
-const char* MQTTSERVER = "192.168.174.29";
+const char* MQTTSERVER = "192.111.111.11";
 const int MQTTPORT = 1883;
 char* MQTT_RTOPIC = "relay_control";
 const char* USERNAME = "iot";
