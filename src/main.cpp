@@ -5,8 +5,8 @@
 
 
 // WiFi credentials
-const char* ssid = "SSID";
-const char* password = "Password";
+const char* ssid = "Hrrd";
+const char* password = "ultc4302";
 
 void setup() {
   Serial.begin(115200);

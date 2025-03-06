@@ -4,12 +4,17 @@
 #include <ArduinoJson.h>
 
 // MQTT broker credentials
-const char* MQTTSERVER = "192.111.111.11";
+const char* MQTTSERVER = "192.168.174.29";
 const int MQTTPORT = 1883;
 char* MQTT_RTOPIC = "relay_control";
 const char* USERNAME = "iot";
 const char* PASSWORD = "password";
-
+const char* ID ="quentin_hasan";
+const bool CLEAN_SESSION=false;
+const int QOS=1;
+const bool WILL_RETAIN= true;
+const char* LWTTOPIC = "status/relay";
+const char* LWTMESSAGE = "disconnected";
 
 // WiFi and MQTT clients
 WiFiClient wifiClient;
@@ -32,12 +37,22 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
  Serial.println(message+'\n');
 
  if (String(topic) == MQTT_RTOPIC) {
+  //////////
+  // JSON //
+  //////////
+
    //DynamicJsonDocument doc(256);
    //DeserializationError error = deserializeJson(doc, message);
 
    //if (!error) {
      //int g_command = doc["command"];
-     int g_command = message.toInt();
+     
+  //////////////////
+  // JUST -1 or 1 //
+  //////////////////
+  int g_command = message.toInt();
+
+
      String relay_state = g_command ? "on" : "off";
     if (g_command==1) {
       Serial.println("new command received: Turning relay ON");
@@ -61,12 +76,6 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
 
   void mqtt_Setup(){
   bool i = false;
-  const char* ID ="quentin_hasan";
-  const bool CLEAN_SESSION=false;
-  const int QOS=1;
-  const bool WILL_RETAIN= true;
-  const char* LWTTOPIC = "status/relay";
-  const char* LWTMESSAGE = "disconnected";
 
   while (!mqttclient.connected()) {
   if (!i) { Serial.print("Connecting to MQTT...");  i=true;}

@@ -15,7 +15,7 @@ void sendRelayState(const String state) {
   doc["node_name"] = "Hasan_Quentin";
   doc["sensor_type"] = "relay";
   doc["data"]["relay_state"] = state;
-  doc["timestamp"] = timeClient.;
+  doc["timestamp"] = timeClient.getEpochTime();
 
   String jsonPayload;
   serializeJsonPretty(doc, jsonPayload);
