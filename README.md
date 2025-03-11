@@ -98,5 +98,5 @@ This system is ideal for:
 - IoT Systems: Interfacing with other devices using MQTT and JSON for seamless integration.
 
 ## License
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://opensource.org/license/MIT).
 
