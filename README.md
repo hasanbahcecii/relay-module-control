@@ -97,5 +97,6 @@ This system is ideal for:
 - Smart Home Automation: Remote control of devices like lights and appliances.
 - IoT Systems: Interfacing with other devices using MQTT and JSON for seamless integration.
 
-
+## License
+This project is licensed under the [MIT License](LICENSE).
 
